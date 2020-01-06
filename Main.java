@@ -50,7 +50,7 @@ class Main {
     // System.out.println(areEqualByThreeDecimalPlaces(-3.1756, -3.175));
     // System.out.println(areEqualByThreeDecimalPlaces(-3.175, -3.176));
 
-    System.out.println(getDurationString(3601));
+    printSquareStar(8);
   }
 
   public static void displayHighScorePosition(String playerName, int position) {
@@ -206,5 +206,54 @@ class Main {
     int second = seconds%60;
     return getDurationString(minutes, second);
   }
+
+   // write your code here
+    public static int getLargestPrime(int number){
+        if(number<1){
+            return -1;
+        }
+        int counter=0;
+        int largestPrimeNumber=-1;
+        for(int i=1; i<=number; i++){
+            if(number%i==0){
+                System.out.println(" i ="+i);
+                for(int k=1; k<=i; k++){
+                    if(i%k==0){
+                        counter++;
+                    }
+                }
+                if(counter==2){
+                    largestPrimeNumber = i;
+                }
+                counter=0;
+                System.out.println(" largestPrimeNumber="+largestPrimeNumber);
+            }
+        }
+        return largestPrimeNumber;
+    }
+
+    public static void printSquareStar(int number){
+        if(number<5){
+            System.out.println("Invalid Value");
+        } else {
+            for(int i=1; i<=number; i++){
+                String stringstar ="";
+                for(int k=1; k<=number; k++){
+                    if(i==1 || i==number){
+                       stringstar += "*";
+                    }  else if(k==1 || k==number){
+                       stringstar += "*";
+                    }  else if(i==k){
+                       stringstar += "*";
+                    }  else if(i==(number-k)+1){
+                        stringstar += "*";
+                    }  else {
+                       stringstar += " ";
+                    }      
+                }
+                System.out.println(stringstar);
+            }
+        }
+    }
   
 }
